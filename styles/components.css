@@ -1,0 +1,162 @@
+.scrollContainer {
+  box-sizing: border-box;
+  overflow-y: auto;
+  height: 100%;
+  padding: var(--ui-kit-space-200);
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-kit-color-content-placeholder-fg) transparent;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  width: var(--ui-kit-base-unit);
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  border-radius: var(--ui-kit-radius-element-standard);
+  background: var(--ui-kit-color-content-placeholder-fg);
+}
+
+.previewFrame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  padding: 16px;
+  border: 1px solid var(--ui-kit-color-border, rgba(17, 24, 39, 0.12));
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.72),
+      rgba(255, 255, 255, 0.14)
+    ),
+    linear-gradient(
+      45deg,
+      rgba(148, 163, 184, 0.08) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(148, 163, 184, 0.08) 50%,
+      rgba(148, 163, 184, 0.08) 75%,
+      transparent 75%,
+      transparent
+    );
+  background-size:
+    auto,
+    24px 24px;
+}
+
+.previewImage {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 420px;
+  border-radius: 12px;
+  object-fit: contain;
+  image-rendering: auto;
+  box-shadow:
+    0 16px 40px rgba(15, 23, 42, 0.16),
+    0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+.previewFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 180px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.metadataGrid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metadataItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.metadataLabel {
+  min-width: 0;
+}
+
+.metadataValue {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.presetGrid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.inputGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.repeatPresetGrid {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.dualGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.actionGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+}
+
+.threadList {
+  display: grid;
+  gap: 12px;
+}
+
+.threadRow {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.threadColor {
+  padding-top: 2px;
+}
+
+.threadContent {
+  display: grid;
+  gap: 6px;
+}
+
+@media (max-width: 420px) {
+  .metadataGrid,
+  .dualGrid,
+  .presetGrid,
+  .repeatPresetGrid,
+  .actionGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .threadRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
