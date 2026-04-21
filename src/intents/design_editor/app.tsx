@@ -137,8 +137,7 @@ const messages = defineMessages({
   repeatSheetSectionDescription: {
     defaultMessage:
       "Build a larger sheet in one go instead of placing single tiles manually.",
-    description:
-      "Short explanation under the repeat sheet section title.",
+    description: "Short explanation under the repeat sheet section title.",
   },
   repeatColumnsLabel: {
     defaultMessage: "Repeat columns",
@@ -162,14 +161,12 @@ const messages = defineMessages({
   },
   presetSectionTitle: {
     defaultMessage: "Preset starting points",
-    description:
-      "Section title above the preset pattern buttons.",
+    description: "Section title above the preset pattern buttons.",
   },
   presetSectionDescription: {
     defaultMessage:
       "Start with a commercial-ready base and tune it for your brand or collection.",
-    description:
-      "Short description introducing the preset pattern section.",
+    description: "Short description introducing the preset pattern section.",
   },
   remixedPatternDescription: {
     defaultMessage:
@@ -179,8 +176,7 @@ const messages = defineMessages({
   },
   patternSettingsTitle: {
     defaultMessage: "Pattern settings",
-    description:
-      "Section title for the main pattern configuration controls.",
+    description: "Section title for the main pattern configuration controls.",
   },
   patternNameLabel: {
     defaultMessage: "Pattern name",
@@ -194,8 +190,7 @@ const messages = defineMessages({
   },
   weaveTypeLabel: {
     defaultMessage: "Weave type",
-    description:
-      "Form field label for selecting the weave structure type.",
+    description: "Form field label for selecting the weave structure type.",
   },
   warpOverLabel: {
     defaultMessage: "Warp over",
@@ -234,8 +229,7 @@ const messages = defineMessages({
       "Slider label controlling the organic variation in the jacquard weave pattern.",
   },
   jacquardComplexityDescription: {
-    defaultMessage:
-      "Increase organic variation for richer woven textures.",
+    defaultMessage: "Increase organic variation for richer woven textures.",
     description:
       "Slider description explaining how jacquard complexity affects the texture.",
   },
@@ -258,40 +252,33 @@ const messages = defineMessages({
   mirrorRepeatDescription: {
     defaultMessage:
       "Reflect the thread order to create a balanced repeating tile.",
-    description:
-      "Switch description explaining the mirror repeat option.",
+    description: "Switch description explaining the mirror repeat option.",
   },
   warpPaletteTitle: {
     defaultMessage: "Warp palette",
-    description:
-      "Section title for the list of warp thread colors.",
+    description: "Section title for the list of warp thread colors.",
   },
   warpPaletteDescription: {
     defaultMessage:
       "Define the vertical yarn order. Each count becomes part of the seamless repeat.",
-    description:
-      "Description for the warp palette section.",
+    description: "Description for the warp palette section.",
   },
   addWarpColorButton: {
     defaultMessage: "Add warp color",
-    description:
-      "Button label that adds another warp thread color entry.",
+    description: "Button label that adds another warp thread color entry.",
   },
   weftPaletteTitle: {
     defaultMessage: "Weft palette",
-    description:
-      "Section title for the list of weft thread colors.",
+    description: "Section title for the list of weft thread colors.",
   },
   weftPaletteDescription: {
     defaultMessage:
       "Define the horizontal yarn order to control contrast and rhythm.",
-    description:
-      "Description for the weft palette section.",
+    description: "Description for the weft palette section.",
   },
   addWeftColorButton: {
     defaultMessage: "Add weft color",
-    description:
-      "Button label that adds another weft thread color entry.",
+    description: "Button label that adds another weft thread color entry.",
   },
   warpThreadType: {
     defaultMessage: "warp",
@@ -438,8 +425,7 @@ const messages = defineMessages({
   },
   presetHeritageTartanLabel: {
     defaultMessage: "Heritage tartan",
-    description:
-      "Button label for the heritage tartan preset.",
+    description: "Button label for the heritage tartan preset.",
   },
   presetHeritageTartanDescription: {
     defaultMessage:
@@ -454,8 +440,7 @@ const messages = defineMessages({
   },
   presetDenimDriftLabel: {
     defaultMessage: "Denim drift",
-    description:
-      "Button label for the denim drift preset.",
+    description: "Button label for the denim drift preset.",
   },
   presetDenimDriftDescription: {
     defaultMessage:
@@ -470,8 +455,7 @@ const messages = defineMessages({
   },
   presetSatinLusterLabel: {
     defaultMessage: "Satin luster",
-    description:
-      "Button label for the satin luster preset.",
+    description: "Button label for the satin luster preset.",
   },
   presetSatinLusterDescription: {
     defaultMessage:
@@ -486,8 +470,7 @@ const messages = defineMessages({
   },
   presetLoomBasketLabel: {
     defaultMessage: "Loom basket",
-    description:
-      "Button label for the loom basket preset.",
+    description: "Button label for the loom basket preset.",
   },
   presetLoomBasketDescription: {
     defaultMessage:
@@ -592,7 +575,10 @@ export const App = () => {
       return;
     }
 
-    const localizedPatternName = formatPresetPatternName(intl, selectedPresetId);
+    const localizedPatternName = formatPresetPatternName(
+      intl,
+      selectedPresetId,
+    );
 
     setPattern((current) =>
       current.patternName === localizedPatternName
@@ -783,14 +769,10 @@ export const App = () => {
           <Rows spacing="2u">
             <Rows spacing="0.5u">
               <Title size="small">
-                <FormattedMessage
-                  {...messages.appTitle}
-                />
+                <FormattedMessage {...messages.appTitle} />
               </Title>
               <Text size="small" tone="secondary">
-                <FormattedMessage
-                  {...messages.appDescription}
-                />
+                <FormattedMessage {...messages.appDescription} />
               </Text>
             </Rows>
 
@@ -822,9 +804,7 @@ export const App = () => {
               ) : (
                 <div className={styles.previewFallback}>
                   <Text alignment="center" size="small" tone="secondary">
-                    <FormattedMessage
-                      {...messages.previewFallback}
-                    />
+                    <FormattedMessage {...messages.previewFallback} />
                   </Text>
                 </div>
               )}
@@ -834,9 +814,7 @@ export const App = () => {
               <div className={styles.metadataItem}>
                 <div className={styles.metadataLabel}>
                   <Text size="xsmall" tone="tertiary">
-                    <FormattedMessage
-                      {...messages.baseRepeatSizeLabel}
-                    />
+                    <FormattedMessage {...messages.baseRepeatSizeLabel} />
                   </Text>
                 </div>
                 <div className={styles.metadataValue}>
@@ -851,9 +829,7 @@ export const App = () => {
               <div className={styles.metadataItem}>
                 <div className={styles.metadataLabel}>
                   <Text size="xsmall" tone="tertiary">
-                    <FormattedMessage
-                      {...messages.sheetRepeatsLabel}
-                    />
+                    <FormattedMessage {...messages.sheetRepeatsLabel} />
                   </Text>
                 </div>
                 <div className={styles.metadataValue}>
@@ -867,9 +843,7 @@ export const App = () => {
             <Rows spacing="1u">
               <Rows spacing="0.5u">
                 <Text size="small" variant="bold">
-                  <FormattedMessage
-                    {...messages.repeatSheetSectionTitle}
-                  />
+                  <FormattedMessage {...messages.repeatSheetSectionTitle} />
                 </Text>
                 <Text size="small" tone="secondary">
                   <FormattedMessage
@@ -963,14 +937,10 @@ export const App = () => {
           <Rows spacing="2u">
             <Rows spacing="0.5u">
               <Title size="small">
-                <FormattedMessage
-                  {...messages.presetSectionTitle}
-                />
+                <FormattedMessage {...messages.presetSectionTitle} />
               </Title>
               <Text size="small" tone="secondary">
-                <FormattedMessage
-                  {...messages.presetSectionDescription}
-                />
+                <FormattedMessage {...messages.presetSectionDescription} />
               </Text>
             </Rows>
 
@@ -993,9 +963,7 @@ export const App = () => {
               </Text>
             ) : (
               <Text size="small" tone="secondary">
-                <FormattedMessage
-                  {...messages.remixedPatternDescription}
-                />
+                <FormattedMessage {...messages.remixedPatternDescription} />
               </Text>
             )}
           </Rows>
@@ -1009,9 +977,7 @@ export const App = () => {
         >
           <Rows spacing="2u">
             <Title size="small">
-              <FormattedMessage
-                {...messages.patternSettingsTitle}
-              />
+              <FormattedMessage {...messages.patternSettingsTitle} />
             </Title>
 
             <div className={styles.inputGrid}>
@@ -1115,9 +1081,7 @@ export const App = () => {
                     max={5}
                     step={1}
                     value={pattern.settings.satinStep}
-                    onChange={(value) =>
-                      updateSettings({ satinStep: value })
-                    }
+                    onChange={(value) => updateSettings({ satinStep: value })}
                   />
                 )}
               />
@@ -1155,9 +1119,7 @@ export const App = () => {
                     max={6}
                     step={1}
                     value={pattern.settings.pileDepth}
-                    onChange={(value) =>
-                      updateSettings({ pileDepth: value })
-                    }
+                    onChange={(value) => updateSettings({ pileDepth: value })}
                   />
                 )}
               />
