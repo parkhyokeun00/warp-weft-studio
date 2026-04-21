@@ -60,8 +60,6 @@ export type PatternPreview = {
 
 export type PatternPreset = {
   id: string;
-  label: string;
-  description: string;
   pattern: PatternConfig;
 };
 
@@ -94,14 +92,14 @@ const THREAD_LIBRARY = [
   "#d97706",
 ];
 
-export const WEAVE_OPTIONS: { label: string; value: WeaveType }[] = [
-  { label: "Plain weave", value: "plain" },
-  { label: "Twill weave", value: "twill" },
-  { label: "Satin weave", value: "satin" },
-  { label: "Basket weave", value: "basket" },
-  { label: "Jacquard", value: "jacquard" },
-  { label: "Leno weave", value: "leno" },
-  { label: "Pile weave", value: "pile" },
+export const WEAVE_TYPES: WeaveType[] = [
+  "plain",
+  "twill",
+  "satin",
+  "basket",
+  "jacquard",
+  "leno",
+  "pile",
 ];
 
 const DEFAULT_SETTINGS: PatternSettings = {
@@ -158,9 +156,6 @@ function thread(id: string, color: string, count: number): ThreadStrip {
 export const PRESETS: PatternPreset[] = [
   {
     id: "heritage-tartan",
-    label: "Heritage tartan",
-    description:
-      "Balanced plaids for scarves, stationery, and editorial covers.",
     pattern: {
       patternName: "Heritage Tartan",
       weaveType: "plain",
@@ -187,9 +182,6 @@ export const PRESETS: PatternPreset[] = [
   },
   {
     id: "denim-drift",
-    label: "Denim drift",
-    description:
-      "Soft diagonal twill with indigo contrast for fashion mockups.",
     pattern: {
       patternName: "Denim Drift",
       weaveType: "twill",
@@ -214,9 +206,6 @@ export const PRESETS: PatternPreset[] = [
   },
   {
     id: "satin-luster",
-    label: "Satin luster",
-    description:
-      "Glossy repeat for premium packaging and beauty campaign textures.",
     pattern: {
       patternName: "Satin Luster",
       weaveType: "satin",
@@ -242,9 +231,6 @@ export const PRESETS: PatternPreset[] = [
   },
   {
     id: "loom-basket",
-    label: "Loom basket",
-    description:
-      "Chunky basket weave for interiors, labels, and artisanal branding.",
     pattern: {
       patternName: "Loom Basket",
       weaveType: "basket",
@@ -294,7 +280,10 @@ export function createPresetPattern(presetId: string): PatternConfig {
   return clonePattern(preset.pattern);
 }
 
-export function createRemixedPattern(source?: PatternConfig): PatternConfig {
+export function createRemixedPattern(
+  source?: PatternConfig,
+  nextPatternName?: string,
+): PatternConfig {
   const base = clonePattern(
     source ??
       PRESETS[Math.floor(Math.random() * PRESETS.length)]?.pattern ??
@@ -305,7 +294,7 @@ export function createRemixedPattern(source?: PatternConfig): PatternConfig {
   const rotateColor = (index: number) =>
     THREAD_LIBRARY[(index + offset) % THREAD_LIBRARY.length] ?? "#1d4ed8";
 
-  base.patternName = `${base.patternName} Remix`;
+  base.patternName = nextPatternName ?? `${base.patternName} Remix`;
   base.settings.mirrored = Math.random() > 0.4;
   base.settings.cellSize = clamp(
     base.settings.cellSize + randomBetween(-4, 4),
